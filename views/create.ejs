@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="container min-vh-100">
+        <div class="row justify-content-center">
+            <h1 class="text-center">Create a Post</h1>
+            <form action="/save" method="post">
+                <input class="form-control" type="text" name="title" id="title" placeholder="Title" required>
+                <textarea class="form-control my-3" name="content" cols="30" rows="12" placeholder="Type your thoughts here..."></textarea>
+                <input class="form-control" type="submit" value="Create Post">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

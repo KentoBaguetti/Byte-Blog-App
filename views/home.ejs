@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog App</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <div class="min-vh-100">
+        <div class="container my-5">
+            <div class="row flex-row justify-content-evenly min-vh-100">
+                <div class="content col-12 col-xxl-7 col-xl-7 p-4">
+                    <% if(posts.length === 0) {%>
+                        <h1 class="text-center">There are no posts! Go make one!</h1>
+                        <hr>
+                    <% } else { %>
+                        <ul>
+                            <% posts.forEach((post) => { %>
+                                <li class="py-3">
+                                    <p><%= post.date %></p>
+                                    <h3><a href="/view/<%= posts.indexOf(post) %>" class="text-dark"><%= post.title %></a></h3>
+                                    <p><%= post.content %></p>
+                                    <hr>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
+                </div>
+                <div id="sidebar" class="content col-3 d-none d-xl-block">
+                    <div class="text-center my-4 max-vh-100">
+                        <h2>Recent Posts</h2>
+                        <hr>
+                        <% if(posts.length === 0) { %>
+                            <p>There are no posts! Go make one!</p>
+                        <% } else { %>
+                            <ul>
+                                <% posts.forEach((post) => { %>
+                                    <li>
+                                        <p><a href="/view/<%= posts.indexOf(post) %>" class="text-dark"><%= post.title %></a></p>
+                                        <hr>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>
+    
+</body>
+</html>

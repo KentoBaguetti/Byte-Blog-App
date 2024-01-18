@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="container min-vh-100">
+        <div class="row justify-content-center">
+            <h1 class="text-center">Edit your Post</h1>
+            <form action="/update" method="post">
+                <input class="form-control" type="text" name="title" id="title" placeholder="Title" value="<%= title %>" required>
+                <textarea class="form-control my-3" name="content" cols="30" rows="12" placeholder="Type your thoughts here..."><%= content %></textarea>
+                <input hidden name="postID" value="<%= postID %>">
+                <input class="form-control" type="submit" name="edit" value="Apply Changes">
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
